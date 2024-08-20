@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <link rel="stylesheet" href="CSS/Admin.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+
+<header class="container-fluid my_header color">
+    <nav class="row justify-content-between align-items-center wrapper">
+        <div class="col-4 col-md-4 d-flex align-items-center justify-content-start img">
+            <img src="../job vacancy/images/logo.ico" alt="#" />
+        </div>
+        <div class="col-4 col-md-4 d-flex align-items-center justify-content-start para">
+            <p>Sidam Science And Technology Agency : Admin</p>
+        </div>
+        <div class="col-12 col-md-4 d-none d-md-flex align-items-center justify-content-end logout_button">
+            <button onclick="goToHome()" type="button" class="button-icon btn btn-primary">
+                Logout
+            </button>
+        </div>
+    </nav>
+</header>
+
+<section class="body-wrapper">
+    <div class="side-bar">
+        <ul class="list-unstyled mb-0">
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Manage System</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="showDetail('turn-on-system')">Turn On System</a>
+                    <a href="#" onclick="showDetail('turn-off-system')">Turn Off System</a>
+                    <a href="#" onclick="showDetail('system-backup')">System Backup</a>
+                    <a href="#" onclick="showDetail('system-update')">System Update</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Manage Users</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="showDetail('create-user')">Create User</a>
+                    <a href="#" onclick="showDetail('update-user')">Update User</a>
+                    <a href="#" onclick="showDetail('delete-user')">Delete User</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content-wrapper">
+        <!-- Manage System -->
+        <div id="turn-on-system" class="content-detail">
+            <h2>Turn On System</h2>
+            <button onclick="performAction('turn-on')">Turn On</button>
+        </div>
+        <div id="turn-off-system" class="content-detail" >
+            <h2>Turn Off System</h2>
+            <button onclick="performAction('turn-off')">Turn Off</button>
+        </div>
+        <div id="system-backup" class="content-detail" >
+            <h2>System Backup</h2>
+            <button onclick="performAction('backup')">Backup</button>
+        </div>
+        <div id="system-update" class="content-detail" >
+            <h2>System Update</h2>
+            <button onclick="performAction('update')">Update</button>
+        </div>
+
+        <!-- Manage Users -->
+        <div id="create-user" class="content-detail" >
+            <h2>Create User</h2>
+            <form id="createUserForm">
+                <div class="form-group">
+                    <label for="createUsername">Username:</label>
+                    <input type="text" id="createUsername" name="username" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="createPassword">Password:</label>
+                    <input type="password" id="createPassword" name="password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="createRole">Role:</label>
+                    <select id="createRole" name="role" class="form-control" required>
+                        <option value="hr-officer">HR Officer</option>
+                        <option value="review-committee">Review Committee</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="createProfileData">Profile Data:</label>
+                    <textarea id="createProfileData" name="profile_data" class="form-control" required></textarea>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="createUser()">Create</button>
+            </form>
+        </div>
+
+        <div id="update-user" class="content-detail">
+            <h2>Update User</h2>
+            <form id="updateUserForm">
+                <div class="form-group">
+                    <label for="updateUserId">User ID:</label>
+                    <input type="number" id="updateUserId" name="id" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="updateUsername">Username:</label>
+                    <input type="text" id="updateUsername" name="username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="updatePassword">Password:</label>
+                    <input type="password" id="updatePassword" name="password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="updateRole">Role:</label>
+                    <select id="updateRole" name="role" class="form-control">
+                        <option value="hr-officer">HR Officer</option>
+                        <option value="review-committee">Review Committee</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="updateProfileData">Profile Data:</label>
+                    <textarea id="updateProfileData" name="profile_data" class="form-control"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="updateUser()">Update</button>
+            </form>
+        </div>
+
+        <div id="delete-user" class="content-detail" >
+            <h2>Delete User</h2>
+            <form id="deleteUserForm">
+                <div class="form-group">
+                    <label for="deleteUserId">User ID:</label>
+                    <input type="number" id="deleteUserId" name="id" class="form-control" required>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="deleteUser()">Delete</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script src="js/Admin.js"></script>
+</body>
+</html>
+

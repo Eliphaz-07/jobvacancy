@@ -1,0 +1,584 @@
+would give responsive css for(<header class="container-fluid my_header color">
+          <nav class="row justify-content-between align-items-center wrapper">
+              <div class="col-4 col-md-4 d-flex align-items-center justify-content-start img">
+                  <img src="images/logo.ico" alt="#" />
+              </div>
+              <div class="col-4 col-md-4 d-flex align-items-center justify-content-center bar d-md-none">
+                  <i onclick="showSidebar()" class="fa-solid fa-bars bar-icon"></i>
+              </div>
+              <div id="LB" class="col-12 col-md-4 d-none d-md-flex align-items-center justify-content-center home_links">
+                  <ul class="d-flex list-unstyled mb-0 w-100 justify-content-center">
+                      <li class="me-3 mb-1"><a href="#home">Home</a></li>
+                      <li class="me-3 mb-1"><a href="#announcement">Announcement</a></li>
+                      <li class="me-3 mb-1"><a href="#status">Status</a></li>
+                      <li class="mb-1"><a href="#goToAbout">About</a> </li>
+                  </ul>
+              </div>
+              <div class="side-bar">
+                  <ul class="list-unstyled mb-0">
+                      <li onclick="hideSidebar()"class="me-3 mb-1"><a href="#home">Home</a></li>
+                      <li onclick="hideSidebar()" class="me-3 mb-1"><a href="#announcement">Announcement</a></li>
+                      <li onclick="hideSidebar()" class="me-3 mb-1"><a href="#status">Status</a></li>
+                      <li onclick="hideSidebar()" class="mb-1"><a href="#goToAbout">About Us</a> </li>
+                  </ul>
+              </div>
+              <div class="col-12 col-md-4 d-none d-md-flex align-items-center justify-content-end login_button">
+                  <button type="button" class="button-icon btn btn-primary">Login</button>
+              </div>
+          </nav>
+      </header> )html
+
+
+
+
+
+
+
+
+      /* * {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 650;
+  font-style: normal;
+}
+
+.color {
+  background-color: rgb(25, 44, 85);
+}
+
+.my_header {
+  position: fixed;
+  color: white;
+  font-weight: 350;
+  font-size: 0.75em;
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
+  transition: background-color 2s, box-shadow 2s;
+  z-index: 3;
+}
+
+.wrapper .img img {
+  max-width: 50px;
+  border-radius: 100px;
+  margin: 12px 20px;
+}
+
+.my_header .wrapper .home_links ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.my_header .wrapper .home_links ul li {
+  margin-top: 11px;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.home_links ul {
+  display: none;
+}
+
+.login_button {
+  display: none;
+}
+
+.bar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .my_header .wrapper .home_links {
+    display: block;
+  }
+
+  .my_header .wrapper .login_button {
+    display: block;
+  }
+
+  .my_header .wrapper ul li:hover {
+    opacity: 1;
+  }
+
+  .my_header .wrapper .home_links ul li a {
+    margin-right: 20px;
+    font-size: 25px;
+    text-decoration: none;
+    color: white;
+    justify-content: space-between;
+  }
+
+  .my_header .wrapper ul li {
+    padding-bottom: 35px;
+    height: 25px;
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bar-icon {
+    font-size: 2em;
+    color: white;
+  }
+  
+.home_links ul {
+  display: none;
+}
+} */
+
+
+
+
+
+
+
+*****************************************************************************
+div onclick="showSection()" class="post">
+                    <form action="/submit" method="post">
+                        <label for="job_title">Job-Title:</label>
+                        <input type="text" id="JT" name="job_title" placeholder="software-developer, accountant, etc">
+                
+                        <label for="job_position">Job-Position:</label>
+                        <input type="text" id="JP" name="job_position" placeholder="diploma, degree, ...">
+                
+                        <label for="experience">Experience:</label>
+                        <input type="text" id="experience" name="experience" placeholder="e.g., 2 years">
+                
+                        <label for="number_of_candidate">Number of candidate:</label>
+                        <input type="number" id="NOC" name="candidate" placeholder="1, 2, ...">
+                
+                        <label for="work_place">Work-Place:</label>
+                        <input type="text" id="WP" name="work_place" placeholder="hawassa, ...">
+                
+                        <label for="Salary">Salary:</label>
+                        <input type="number" id="S-Payment" name="payment">
+                
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+                <div onclick="showSection()" class="exam">
+                    <form action="/submit" method="post">
+                        <label for="exam_name">Exam Name:</label>
+                        <input type="text" id="exam_name" name="exam_name" placeholder="e.g., Final Exam">
+                
+                        <label for="exam_date">Exam Date:</label>
+                        <input type="date" id="exam_date" name="exam_date">
+                
+                        <label for="exam_time">Exam Time:</label>
+                        <input type="time" id="exam_time" name="exam_time">
+                
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+
+
+  *|********************************************************************************
+
+   function showSection(section) {
+        document.querySelectorAll('.post, .exam').forEach(el => {
+          el.style.display = 'none';
+        });
+      
+        if (section === 'post') {
+          document.querySelector('.post').style.display = 'block';
+        } else if (section === 'Exam') {
+          document.querySelector('.exam').style.display = 'block';
+        }
+      }
+
+
+
+**************************************************************************************
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Admin Dashboard</h1>
+        <div class="tabs">
+            <button class="tablink" onclick="openTab(event, 'ManageSystem')">Manage System</button>
+            <button class="tablink" onclick="openTab(event, 'ManageUsers')">Manage Users</button>
+        </div>
+        
+        <div id="ManageSystem" class="tabcontent">
+            <h2>Manage System</h2>
+            <button onclick="turnOnSystem()">Turn On System</button>
+            <button onclick="turnOffSystem()">Turn Off System</button>
+            <button onclick="backupSystem()">System Backup</button>
+            <button onclick="updateSystem()">System Update</button>
+        </div>
+        
+        <div id="ManageUsers" class="tabcontent">
+            <h2>Manage Users</h2>
+            <form id="userForm">
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="Password">
+                <button type="button" onclick="createUser()">Create User</button>
+                <button type="button" onclick="updateUser()">Update User</button>
+                <button type="button" onclick="deleteUser()">Delete User</button>
+            </form>
+            <div id="userList"></div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html> -->
+
+
+*************************************************************************
+this is my  html(), css(), js() and i need to display postform, exam-date form, interview-date for while i click post, examdate, interviewdate, which are in the sidebar the forms has to display when i click the links
+
+
+
+
+**************************************************************************************************
+<!-- <div class="container-fluid admin-container">
+            <div class="tab-content" id="adminTabsContent">
+                <div class="tab-pane fade" id="manage-system">
+                    <h2>Manage System</h2>
+                    <div class="my-3">
+                        <button class="btn btn-success btn-block" onclick="turnOnSystem()">Turn On System</button>
+                        <button class="btn btn-danger btn-block" onclick="turnOffSystem()">Turn Off System</button>
+                        <button class="btn btn-info btn-block" onclick="backupSystem()">System Backup</button>
+                        <button class="btn btn-warning btn-block" onclick="updateSystem()">System Update</button>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="manage-users">
+                    <h2>Manage Users</h2>
+                    <form id="userForm" class="my-3">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" class="form-control" placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" class="form-control" placeholder="Enter password">
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="createUser()">Create User</button>
+                        <button type="button" class="btn btn-secondary" onclick="updateUser()">Update User</button>
+                        <button type="button" class="btn btn-danger" onclick="deleteUser()">Delete User</button>
+                    </form>
+                    <div id="userList" class="mt-3"></div>
+                </div>
+            </div>
+        </div> -->
+*******************************************************************************************
+/*html*/
+
+    <!-- <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Dashboard</title>
+        <link rel="stylesheet" href="CSS/bootstrap.css">
+        <link rel="stylesheet" href="CSS/Admin.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </head>
+    <body>
+
+    <header class="container-fluid my_header color">
+            <nav class="row justify-content-between align-items-center wrapper">
+                <div class="col-4 col-md-4 d-flex align-items-center justify-content-start img">
+                    <img src="../job vacancy/images/logo.ico" alt="#" />
+                </div>
+                <div class="col-4 col-md-4 d-flex align-items-center justify-content-start para">
+                    <p>Sidam Science And Technology Agency : Admin</p>
+                </div>
+                <div class="col-12 col-md-4 d-none d-md-flex align-items-center justify-content-end logout_button">
+                    <button onclick="goToHome()" type="button" class="button-icon btn btn-primary">
+                        Logout
+                    </button>
+                </div>
+            </nav>
+        </header>
+    <section class="body-wrapper">
+        <div class="side-bar">
+            <ul class="list-unstyled mb-0">
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Manage System</a>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="showDetail('turn-on-system')">Turn On System</a>
+                        <a href="#" onclick="showDetail('turn-off-system')">Turn Off System</a>
+                        <a href="#" onclick="showDetail('system-backup')">System Backup</a>
+                        <a href="#" onclick="showDetail('system-update')">System Update</a>
+                    </div>
+                </li>
+                <li class="dropdown MGU">
+                    <a href="#" class="dropbtn">Manage Users</a>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="showDetail('create-user')">Create User</a>
+                        <a href="#" onclick="showDetail('update-user')">Update User</a>
+                        <a href="#" onclick="showDetail('delete-user')">Delete User</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+          for manage system and user  
+        <div class="content-wrapper">
+                for manage system 
+            <div id="turn-on-system" class="content-detail" style="display:none;">
+                <h2>Turn On System</h2>
+                <button onclick="performAction('turn-on')">Turn On</button>
+            </div>
+            <div id="turn-off-system" class="content-detail" >
+                <h2>Turn Off System</h2>
+                <button onclick="performAction('turn-off')">Turn Off</button>
+            </div>
+            <div id="system-backup" class="content-detail" >
+                <h2>System Backup</h2>
+                <button onclick="performAction('backup')">Backup</button>
+            </div>
+            <div id="system-update" class="content-detail">
+                <h2>System Update</h2>
+                <button onclick="performAction('update')">Update</button>
+            </div>
+
+             for create-user 
+
+            <div id="create-user" class="content-detail" >
+                <h2>Create User</h2>
+                <form id="createUserForm">
+                    <div class="form-group">
+                        <label for="createUsername">Username:</label>
+                        <input type="text" id="createUsername" name="username" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="createPassword">Password:</label>
+                        <input type="password" id="createPassword" name="password" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="createRole">Role:</label>
+                        <select id="createRole" name="role" class="form-control" required>
+                            <option value="hr-officer">HR Officer</option>
+                            <option value="review-committee">Review Committee</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="createProfileData">Profile Data:</label>
+                        <textarea id="createProfileData" name="profile_data" class="form-control" required></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="createUser()">Create</button>
+                </form>
+            </div>
+
+         for update-user 
+
+            <div id="update-user" class="content-detail" >
+                <h2>Update User</h2>
+                <form id="updateUserForm">
+                    <div class="form-group">
+                        <label for="updateUserId">User ID:</label>
+                        <input type="number" id="updateUserId" name="id" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateUsername">Username:</label>
+                        <input type="text" id="updateUsername" name="username" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="updatePassword">Password:</label>
+                        <input type="password" id="updatePassword" name="password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="updateRole">Role:</label>
+                        <select id="updateRole" name="role" class="form-control">
+                            <option value="hr-officer">HR Officer</option>
+                            <option value="review-committee">Review Committee</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateProfileData">Profile Data:</label>
+                        <textarea id="updateProfileData" name="profile_data" class="form-control"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="updateUser()">Update</button>
+                </form>
+            </div>
+                 for delete-user 
+
+            <div id="delete-user" class="content-detail" >
+                <h2>Delete User</h2>
+                <form id="deleteUserForm">
+                    <div class="form-group">
+                        <label for="deleteUserId">User ID:</label>
+                        <input type="number" id="deleteUserId" name="id" class="form-control" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="deleteUser()">Delete</button>
+                </form>
+            </div>
+        </div>        
+    </section>
+        <script src="js/Admin.js"></script>
+    </body>
+    </html>  -->
+******************************************************************************************
+
+/* Reset margin and padding */
+/* * {
+    margin: 0;
+    padding: 0;
+} */
+
+/* Header styling */
+/* .my_header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    font-weight: 350;
+    font-size: 0.75em;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgb(25, 44, 85);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img img {
+    max-width: 50px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.para p {
+    font-size: 18px;
+    color: white;
+} */
+
+/* Sidebar styling */
+/* .body-wrapper {
+    width: 100%;
+    display: flex;
+    margin-top: 60px;
+}
+
+.side-bar {
+    height: 87vh;
+    width: 230px;
+    z-index: 2;
+    background-color: rgb(185, 217, 238);
+    backdrop-filter: blur(10px);
+    box-shadow: 10px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 30px;
+}
+
+.side-bar ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.side-bar li {
+    width: 100%;
+} */
+
+/* Dropdown menu styling */
+/* .dropbtn {
+    background-color: rgb(25, 44, 85);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: relative; 
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    position: relative;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e4a8e;
+} */
+
+/* Ensure Manage Users is pushed down */
+/* .side-bar .dropdown:hover .dropdown-content {
+    display: block;
+    position: relative;
+}
+
+.side-bar .dropdown-content.show {
+    display: block;
+} */
+
+
+/* .button-icon {
+    margin-top: 2px;
+    margin-right: 25px;
+    margin-left: 20px;
+    padding: 10px 25px;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+.content-wrapper{
+    margin-top: 60px;
+}
+
+.content-wrapper button{
+    margin-top: 2px;
+margin-right: 25px;
+margin-left: 20px;
+padding: 10px 25px;
+border-radius: 30px;
+color: rgb(37, 150, 202);
+text-decoration: none;
+} */
+
+
+
+
